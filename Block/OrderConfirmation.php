@@ -77,12 +77,12 @@ class OrderConfirmation extends \Magento\Framework\View\Element\Template
             'customer_firstname' => (string)(
                 $order->getCustomerFirstname() ?
                     $order->getCustomerFirstname() :
-                    $order->getBillingAddress()->getFirstname()
+                    ($order->getBillingAddress() ? $order->getBillingAddress()->getFirstname() : '')
             ),
             'customer_lastname' => (string)(
                 $order->getCustomerFirstname() ? // intentional check of firstname
                     $order->getCustomerLastname() :
-                    $order->getBillingAddress()->getLastname()
+                    ($order->getBillingAddress() ? $order->getBillingAddress()->getLastname() : '')
             ),
             'referral_candy_app_id' => $this->_referralCandyHelper->getAppId()
         );
@@ -114,7 +114,7 @@ class OrderConfirmation extends \Magento\Framework\View\Element\Template
 
         $this->addData(['referral_candy_enabled' => true]);
         $order = $this->_checkoutSession->getLastRealOrder();
-        if ($order) {
+        if ($order && $order->getIncrementId()) {
             $this->addData( $this->buildReferralCandyData($order) );
         }
     }
