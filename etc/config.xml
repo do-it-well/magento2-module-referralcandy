@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <referralcandy>
+            <tracking>
+                <enable>1</enable>
+                <app_id></app_id>
+                <secret_key></secret_key>
+                <invoice_bcc_address></invoice_bcc_address>
+            </tracking>
+        </referralcandy>
+    </default>
+</config>
