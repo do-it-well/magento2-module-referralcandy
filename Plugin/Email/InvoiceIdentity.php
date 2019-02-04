@@ -16,7 +16,7 @@ class InvoiceIdentity
         $result
     ) {
         $store_id = $subject->getStore()->getStoreId();
-        if (!$this->_referralCandyHelper->getEnabled($store_id)) return $result;
+        if (!$this->_referralCandyHelper->getEmailEnabled($store_id)) return $result;
 
         $address = $this->_referralCandyHelper->getInvoiceBccAddress($store_id);
         if (!strlen($address)) return $result;

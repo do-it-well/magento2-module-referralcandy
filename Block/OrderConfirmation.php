@@ -107,7 +107,7 @@ class OrderConfirmation extends \Magento\Framework\View\Element\Template
 
     protected function prepareBlockData()
     {
-        if( !$this->_referralCandyHelper->getEnabled() ){
+        if( !$this->_referralCandyHelper->getJavaScriptEnabled() ){
             $this->addData(['referral_candy_enabled' => false]);
             return;
         }

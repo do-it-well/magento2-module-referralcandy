@@ -11,24 +11,37 @@
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="connection_type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Connection Type</label>
+                    <source_model>DIW\ReferralCandy\Model\Config\Source\ConnectionType</source_model>
+                    <depends>
+                        <field id="*/*/enable">1</field>
+                    </depends>
+                    <comment>The "Connection Type", from the "Integration" section of your account.</comment>
+                </field>
                 <field id="app_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>App ID</label>
                     <depends>
                         <field id="*/*/enable">1</field>
+                        <field id="*/*/connection_type">javascript</field>
                     </depends>
+                    <comment>The "App ID", from the "Plugin Tokens" section of the "My Profile" section of your account.</comment>
                 </field>
                 <field id="secret_key" translate="label" type="password" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Secret Key</label>
                     <depends>
                         <field id="*/*/enable">1</field>
+                        <field id="*/*/connection_type">javascript</field>
                     </depends>
+                    <comment>The "Secret Key", from the "Plugin Tokens" section of the "My Profile" section of your account.</comment>
                 </field>
                 <field id="invoice_bcc_address" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Send Invoice Email Copy To</label>
+                    <label>Forward or BCC your invoices to this email</label>
                     <depends>
                         <field id="*/*/enable">1</field>
+                        <field id="*/*/connection_type">email</field>
                     </depends>
-                    <comment>Optional, E-Mail Address</comment>
+                    <comment>The address listed as "Forward or BCC your invoices to this email" in the "Integration" section of your account.</comment>
                 </field>
             </group>
         </section>

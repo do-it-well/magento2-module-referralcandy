@@ -17,8 +17,28 @@ class Data extends AbstractHelper
 
 	public function getEnabled($storeId = null)
 	{
+		return $this->getConfigValue('enable', $storeId);
+	}
+
+	public function getConnectionType($storeId = null)
+	{
+		return $this->getConfigValue('connection_type', $storeId);
+	}
+
+	public function getEmailEnabled($storeId = null)
+	{
 		return (
-			$this->getConfigValue('enable', $storeId) &&
+			$this->getEnabled($storeId) &&
+			$this->getConnectionType($storeId) === 'email' &&
+			strlen($this->getInvoiceBccAddress($storeId))
+		);
+	}
+
+	public function getJavaScriptEnabled($storeId = null)
+	{
+		return (
+			$this->getEnabled($storeId) &&
+			$this->getConnectionType($storeId) === 'javascript' &&
 			strlen($this->getAppId($storeId)) &&
 			strlen($this->getSecretKey($storeId))
 		);

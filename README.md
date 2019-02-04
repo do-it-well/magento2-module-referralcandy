@@ -15,10 +15,11 @@ For example:
 ## Configuration
 
 By default, the module will be "enabled", but inactive. The module will not
-output anything to your site until it has been configured. If nothing else,
-you will need to fill in the "App ID" and "Secret Key" fields, the values for
-which can be found under the "Plugin tokens" sections of your Referral Candy
-account profile.
+output anything to your site until it has been configured. You will need to
+fill out the "Connection Type", and the relevant options for the selected type.
+The values for the "Email" type can be found under the "Integration" section of
+your Referral Candy account, while the values for the "JavaScript" type can be
+found under the "Plugin tokens" sections of your Referral Candy account profile.
 
 Module configuration can be found under the Magento2 Admin Panel, in the
 section:
@@ -31,12 +32,13 @@ Configuration options are:
 | Option | Description                                       | Default |
 |--------|---------------------------------------------------|---------|
 | Enable | Allows module output to be completely toggled on/off | Yes |
-| App ID | Identifier for your Referral Candy account. Nothing will be output unless this option has been configured. | (none) |
-| Secret Key | The Secret Key for your Referral Candy account. Nothing will be output unless this option has been configured. | (none) |
-| Send Invoice Email Copy To | (optional) Email Address to send a copy of Invoice Emails to. Leave blank to disable. | (none) |
+| Connection Type | The type of connection to ReferralCandy, from the "Integration" section of your account. | Email |
+| App ID | (only for "JavaScript" connections) Identifier for your Referral Candy account. | (none) |
+| Secret Key | (only for "JavaScript" connections) The Secret Key for your Referral Candy account. | (none) |
+| Forward or BCC your invoices to this email | (only for "Email" connections) Email Address to send a copy of Invoice Emails to. | (none) |
 
-Note that the "Send Invoice Email Copy To" option is dependent on the
-"Send Invoice Email Copy Method" option under:
+Note that the "Forward or BCC your invoices to this email" option is dependent
+on the "Send Invoice Email Copy Method" option under:
 
 **Stores** > **Settings** > **Configuration** > **Sales** > **Sales Emails** >
 **Invoice**

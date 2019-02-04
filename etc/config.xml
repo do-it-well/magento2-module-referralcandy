@@ -4,6 +4,7 @@
         <referralcandy>
             <tracking>
                 <enable>1</enable>
+                <connection_type>email</connection_type>
                 <app_id></app_id>
                 <secret_key></secret_key>
                 <invoice_bcc_address></invoice_bcc_address>
